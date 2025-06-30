@@ -7,8 +7,13 @@ Este repositório deve conter dois projetos, **Web (Next.js)** e **Mobile (React
 Avaliar seus conhecimentos básicos em:
 - React + TypeScript
 - Next.js (Web)
-- React Native + React Navigation (Mobile)
+- React Native + React Navigation (Mobile) + Expo
 - Formulários, consumo de dados e navegação
+
+## 📚 Objetivo do Sistema
+Este repositório contém dois projetos interligados Web (Next.js) e Mobile (React Native com Expo) que simulam um sistema básico de listagem e contratação de serviços, com foco em experiências multiplataforma (web e mobile).
+
+O sistema tem como foco demonstrar a arquitetura e a construção de um pequeno ecossistema de aplicações, onde tanto usuários web quanto mobile podem acessar um catálogo de prestadores de serviços e realizar contratações. É ideal para fins de estudo, demonstrações técnicas ou como base para projetos maiores.
 
 ---
 
