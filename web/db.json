@@ -1,0 +1,48 @@
+{
+  "services": [
+    {
+      "id": "1",
+      "name": "Limpeza Residencial",
+      "price": 150,
+      "description": "Serviço completo de limpeza para residências"
+    },
+    {
+      "id": "2",
+      "name": "Manutenção de Computadores",
+      "price": 80,
+      "description": "Diagnóstico e reparo de computadores e notebooks"
+    },
+    {
+      "id": "3",
+      "name": "Aulas de Inglês",
+      "price": 60,
+      "description": "Aulas particulares de inglês para todos os níveis"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "1",
+      "serviceId": "1",
+      "serviceName": "Limpeza Residencial",
+      "servicePrice": 150,
+      "contractDate": "2024-01-15",
+      "status": "ativo"
+    },
+    {
+      "id": "2",
+      "serviceId": "2",
+      "serviceName": "Manutenção de Computadores",
+      "servicePrice": 80,
+      "contractDate": "2024-01-20",
+      "status": "ativo"
+    },
+    {
+      "id": "a134",
+      "serviceId": "1",
+      "serviceName": "Limpeza Residencial",
+      "servicePrice": 150,
+      "contractDate": "2025-07-28",
+      "status": "ativo"
+    }
+  ]
+}
