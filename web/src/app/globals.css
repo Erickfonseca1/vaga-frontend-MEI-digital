@@ -1,15 +1,31 @@
 @import "tailwindcss";
+@import "../styles/colors.css";
 
 :root {
+  /* Cores da identidade visual */
   --background: #ffffff;
   --foreground: #171717;
+  
+  /* Cores principais */
+  --color-primary: #007bff;
+  --color-success: #28a745;
+  --color-neutral: #f8f9fa;
+  --color-warning: #ffc107;
+  --color-danger: #db3a34;
+  
+  /* Cores com nomes originais */
+  --azure: #007bff;
+  --pigment-green: #28a745;
+  --seasalt: #f8f9fa;
+  --amber: #ffc107;
+  --poppy: #db3a34;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-inter);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,5 +38,69 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  font-variation-settings: normal;
+}
+
+/* Estilos globais com as cores da identidade visual */
+::selection {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-neutral);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* Foco personalizado */
+*:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Links */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-primary);
+  opacity: 0.8;
+}
+
+/* Botões base */
+button {
+  font-family: inherit;
+}
+
+/* Inputs */
+input, textarea, select {
+  font-family: inherit;
+  border: 1px solid var(--color-neutral);
+  border-radius: 4px;
+  padding: 8px 12px;
+  transition: border-color 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-primary);
+  outline: none;
 }

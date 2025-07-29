@@ -1,0 +1,62 @@
+/* Variáveis CSS para as cores da identidade visual */
+
+:root {
+  /* Cores principais */
+  --color-primary: #007bff;
+  --color-success: #28a745;
+  --color-neutral: #f8f9fa;
+  --color-warning: #ffc107;
+  --color-danger: #db3a34;
+
+  /* Cores com nomes originais */
+  --azure: #007bff;
+  --pigment-green: #28a745;
+  --seasalt: #f8f9fa;
+  --amber: #ffc107;
+  --poppy: #db3a34;
+
+  /* Variantes em HSL */
+  --azure-hsl: 211, 100%, 50%;
+  --pigment-green-hsl: 134, 61%, 41%;
+  --seasalt-hsl: 210, 17%, 98%;
+  --amber-hsl: 45, 100%, 51%;
+  --poppy-hsl: 2, 70%, 53%;
+
+  /* Variantes em RGB */
+  --azure-rgb: 0, 123, 255;
+  --pigment-green-rgb: 40, 167, 69;
+  --seasalt-rgb: 248, 249, 250;
+  --amber-rgb: 255, 193, 7;
+  --poppy-rgb: 219, 58, 52;
+
+  /* Gradientes */
+  --gradient-brand: linear-gradient(90deg, #007bff, #28a745, #f8f9fa, #ffc107, #db3a34);
+  --gradient-primary: linear-gradient(90deg, #007bff, #28a745);
+  --gradient-warning: linear-gradient(90deg, #ffc107, #db3a34);
+  --gradient-radial: radial-gradient(#007bff, #28a745, #f8f9fa, #ffc107, #db3a34);
+}
+
+/* Classes utilitárias para usar as variáveis CSS */
+.bg-primary { background-color: var(--color-primary); }
+.bg-success { background-color: var(--color-success); }
+.bg-neutral { background-color: var(--color-neutral); }
+.bg-warning { background-color: var(--color-warning); }
+.bg-danger { background-color: var(--color-danger); }
+
+.text-primary { color: var(--color-primary); }
+.text-success { color: var(--color-success); }
+.text-neutral { color: var(--color-neutral); }
+.text-warning { color: var(--color-warning); }
+.text-danger { color: var(--color-danger); }
+
+.border-primary { border-color: var(--color-primary); }
+.border-success { border-color: var(--color-success); }
+.border-neutral { border-color: var(--color-neutral); }
+.border-warning { border-color: var(--color-warning); }
+.border-danger { border-color: var(--color-danger); }
+
+/* Gradientes */
+.bg-gradient-brand { background: var(--gradient-brand); }
+.bg-gradient-primary { background: var(--gradient-primary); }
+.bg-gradient-warning { background: var(--gradient-warning); }
+.bg-gradient-radial { background: var(--gradient-radial); } 
