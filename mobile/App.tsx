@@ -1,4 +1,4 @@
-import "./global.css"
+import "./global.css";
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -10,7 +10,7 @@ import { RootStackParamList } from './src/types/navigation';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
       <StatusBar style="auto" />
@@ -26,4 +26,6 @@ export default function App() {
       </Stack.Navigator>
     </NavigationContainer>
   );
-}
+};
+
+export default App;

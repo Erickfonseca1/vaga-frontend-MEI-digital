@@ -1,88 +1,98 @@
-# 💼 Teste Técnico MEI Digital - React + React Native + TypeScript
+# Sistema de Serviços - MEI Digital
 
-Este repositório deve conter dois projetos, **Web (Next.js)** e **Mobile (React Native com Expo)**, que juntos simulam um pequeno sistema de listagem e contratação de serviços.
+Este projeto consiste em uma aplicação completa para gerenciamento de serviços, composta por uma versão web (Next.js) e uma versão mobile (React Native/Expo).
 
-## 🎯 Objetivo do Teste
+## Tecnologias Utilizadas
 
-Avaliar seus conhecimentos básicos em:
-- React + TypeScript
-- Next.js (Web)
-- React Native + React Navigation (Mobile) + Expo
-- Formulários, consumo de dados e navegação
+### Web (Next.js)
+- **Framework**: Next.js 14 com App Router
+- **Linguagem**: TypeScript
+- **Estilização**: Tailwind CSS
+- **Gerenciamento de Estado**: React Hooks
+- **Validação**: Validação customizada com useState
+- **Navegação**: Next.js Navigation
 
-## 📚 Objetivo do Sistema
-Este repositório contém dois projetos interligados Web (Next.js) e Mobile (React Native com Expo) que simulam um sistema básico de listagem e contratação de serviços, com foco em experiências multiplataforma (web e mobile).
+### Mobile (React Native/Expo)
+- **Framework**: React Native com Expo
+- **Linguagem**: TypeScript
+- **Estilização**: NativeWind (Tailwind CSS para React Native)
+- **Navegação**: React Navigation Stack
+- **Validação**: Yup + React Hook Form
+- **Gerenciamento de Estado**: React Hooks
 
-O sistema tem como foco demonstrar a arquitetura e a construção de um pequeno ecossistema de aplicações, onde tanto usuários web quanto mobile podem acessar um catálogo de prestadores de serviços e realizar contratações. É ideal para fins de estudo, demonstrações técnicas ou como base para projetos maiores.
-
----
-
-## 📁 Estrutura do Repositório
-
-```
-.
-├── web/        → Projeto Web (Next.js)
-└── mobile/     → Projeto Mobile (React Native)
-```
-
----
-
-## 🧑‍💻 Instruções
-
-### 🔹 Web (Next.js)
-
-#### ✅ Funcionalidades esperadas:
-- Página inicial com listagem de serviços **cadastrados** e listagem dos serviços **contratados**
-- Página para cadastro de novo serviço com:
-  - Nome (obrigatório)
-  - Preço (obrigatório e apenas numérico)
-  - Descrição (opcional)
-- Persistência local (JSON Server)
-
----
-
-### 🔸 Mobile (React Native com Expo)
-
-#### ✅ Funcionalidades esperadas:
-- Tela inicial com listagem dos serviços disponíveis para contratação
-- Botão "Contratar" que leva a um formulário de:
-  - Nome completo (obrigatório)
-  - E-mail (obrigatório)
-  - Telefone (obrigatório)
-- Impressão no console dos dados do formulário + nome do serviço
-
-Você pode usar o emulador ou o app Expo Go no celular.
-
----
-
-## 🔧 Tecnologias que devem ser utilizadas
+## Funcionalidades
 
 ### Web
-- Next.js
-- TypeScript
-- React Hooks
+- ✅ **Listagem de Serviços**: Visualização de todos os serviços disponíveis
+- ✅ **Cadastro de Serviços**: Formulário para criar novos serviços
+- ✅ **Listagem de Contratos**: Visualização de contratos realizados
+- ✅ **Design Responsivo**: Adaptação para diferentes tamanhos de tela
 
 ### Mobile
-- Expo
-- React Native
-- React Navigation
-- React Hook Form
-- Yup
+- ✅ **Listagem de Serviços**: Cards com informações dos serviços
+- ✅ **Contratação de Serviços**: Formulário para contratar serviços
+- ✅ **Modal de Confirmação**: Exibição dos dados da contratação
+- ✅ **Navegação Intuitiva**: Stack navigation com botões voltar
 
+## Como Executar
 
----
+### Pré-requisitos
+- Node.js (versão 18 ou superior)
+- npm ou yarn
+- Expo CLI (para mobile)
 
-## 📌 Observações
-- Você **não precisa** conectar com back-end real.
-- A persistência pode ser feita com JSON Server.
-- Código limpo, componentização e organização contam pontos 😉
+### Backend (JSON Server)
+```bash
+# Instalar json-server globalmente (se necessário)
+npm install -g json-server
 
----
+# Executar o servidor na porta 3001
+json-server --watch db.json --port 3001
+```
 
-## 📬 Entrega
-- Suba o projeto no GitHub (público).
-- Envie o link do repositório e, se possível, grave um vídeo curto explicando o que foi feito (opcional).
+### Web (Next.js)
+```bash
+# Navegar para a pasta web
+cd web
 
----
+# Instalar dependências
+npm install
 
-Boa sorte! 🍀
+# Executar em modo de desenvolvimento
+npm run dev
+
+# Acessar: http://localhost:3000
+```
+
+### Mobile (Expo)
+```bash
+# Navegar para a pasta mobile
+cd mobile
+
+# Instalar dependências
+npm install
+
+# Executar com Expo
+npx expo start
+```
+
+## Configurações
+
+### API
+- **URL Base**: `http://localhost:3001`
+- **Endpoints**:
+  - `GET /services` - Listar serviços
+  - `POST /services` - Criar serviço
+  - `GET /contracts` - Listar contratos
+  - `POST /contracts` - Criar contrato
+
+### Banco de Dados
+O projeto utiliza JSON Server com um arquivo `db.json` que simula um banco de dados real.
+
+## Design System
+
+Ambas as aplicações seguem um design system consistente:
+- **Cores**: Paleta baseada em azul (#007bff)
+- **Tipografia**: Sistema de fontes responsivo
+- **Componentes**: Cards, badges, botões padronizados
+- **Espaçamento**: Sistema de grid consistente

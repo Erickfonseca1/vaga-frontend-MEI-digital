@@ -131,7 +131,10 @@ const ContractScreen = ({ navigation, route }: ContractScreenProps) => {
     >
       <Header title="Contratar Serviço" showBackButton />
       
-      <ScrollView className="flex-1" contentContainerStyle={{ paddingBottom: 40 }}>
+      <ScrollView
+        className="flex-1"
+        contentContainerStyle={{ paddingBottom: 40 }}
+      >
         <View className="px-4 py-4">
           <View className="bg-white rounded-lg border border-gray-200 p-4 mb-6">
             <View className="flex-row justify-between items-start mb-3">

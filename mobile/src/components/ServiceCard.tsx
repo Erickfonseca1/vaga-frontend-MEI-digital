@@ -17,7 +17,7 @@ const ServiceCard = ({ service, onContract }: ServiceCardProps) => {
   };
 
   return (
-    <View className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+    <View className="bg-white rounded-lg p-4 border border-gray-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 ease-in-out">
       <View className="flex-row justify-between items-start mb-3">
         <Text className="text-lg font-semibold text-gray-900 flex-1 mr-3" numberOfLines={2}>
           {service.name}
