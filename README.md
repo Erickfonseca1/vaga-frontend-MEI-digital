@@ -94,5 +94,4 @@ O projeto utiliza JSON Server com um arquivo `db.json` que simula um banco de da
 Ambas as aplicações seguem um design system consistente:
 - **Cores**: Paleta baseada em azul (#007bff)
 - **Tipografia**: Sistema de fontes responsivo
-- **Componentes**: Cards, badges, botões padronizados
-- **Espaçamento**: Sistema de grid consistente
+- **Componentes**: Header, Cards, badges
