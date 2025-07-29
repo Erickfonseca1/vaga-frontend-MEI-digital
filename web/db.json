@@ -43,6 +43,17 @@
       "servicePrice": 150,
       "contractDate": "2025-07-28",
       "status": "ativo"
+    },
+    {
+      "id": "f32d",
+      "serviceId": "2",
+      "serviceName": "Manutenção de Computadores",
+      "servicePrice": 80,
+      "contractDate": "2025-07-29",
+      "status": "ativo",
+      "customerName": "Erick Fonseca Martins Peixoto",
+      "customerEmail": "erick@teste.com",
+      "customerPhone": "(83) 98770-4234"
     }
   ]
 }

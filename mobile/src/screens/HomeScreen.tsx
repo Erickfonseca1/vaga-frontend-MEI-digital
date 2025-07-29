@@ -3,7 +3,6 @@ import {
   View,
   Text,
   FlatList,
-  StyleSheet,
   RefreshControl,
   Alert,
   ActivityIndicator,
@@ -11,7 +10,6 @@ import {
 import ServiceCard from '../components/ServiceCard';
 import { Service } from '../types';
 import { api } from '../services/api';
-import { colors } from '../styles/colors';
 import { HomeScreenNavigationProp } from '../types/navigation';
 
 type HomeScreenProps = {
@@ -58,18 +56,18 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
   if (loading) {
     return (
-      <View style={styles.loadingContainer}>
-        <ActivityIndicator size="large" color={colors.primary} />
-        <Text style={styles.loadingText}>Carregando serviços...</Text>
+      <View className="flex-1 justify-center items-center bg-white">
+        <ActivityIndicator size="large" color="#007bff" />
+        <Text className="mt-4 text-base text-gray-600">Carregando serviços...</Text>
       </View>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>Serviços Disponíveis</Text>
-        <Text style={styles.subtitle}>
+    <View className="flex-1 bg-white">
+      <View className="p-5 pt-15 bg-white border-b border-gray-200">
+        <Text className="text-3xl font-bold text-gray-900 mb-2">Serviços Disponíveis</Text>
+        <Text className="text-base text-gray-600">
           Escolha um serviço para contratar
         </Text>
       </View>
@@ -78,19 +76,19 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
         data={services}
         renderItem={renderService}
         keyExtractor={(item) => item.id.toString()}
-        contentContainerStyle={styles.listContainer}
+        contentContainerStyle={{ padding: 20 }}
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
             onRefresh={onRefresh}
-            colors={[colors.primary]}
-            tintColor={colors.primary}
+            colors={['#007bff']}
+            tintColor="#007bff"
           />
         }
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={
-          <View style={styles.emptyContainer}>
-            <Text style={styles.emptyText}>
+          <View className="flex-1 justify-center items-center py-15">
+            <Text className="text-base text-gray-600 text-center">
               Nenhum serviço disponível no momento.
             </Text>
           </View>
@@ -99,54 +97,5 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.background,
-  },
-  header: {
-    padding: 20,
-    paddingTop: 60,
-    backgroundColor: colors.surface,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: colors.text.primary,
-    marginBottom: 8,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: colors.text.secondary,
-  },
-  listContainer: {
-    padding: 20,
-  },
-  loadingContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: colors.background,
-  },
-  loadingText: {
-    marginTop: 16,
-    fontSize: 16,
-    color: colors.text.secondary,
-  },
-  emptyContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 60,
-  },
-  emptyText: {
-    fontSize: 16,
-    color: colors.text.secondary,
-    textAlign: 'center',
-  },
-});
 
 export default HomeScreen; 

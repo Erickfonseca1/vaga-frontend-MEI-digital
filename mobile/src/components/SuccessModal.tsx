@@ -3,11 +3,9 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
   Modal,
   Platform,
 } from 'react-native';
-import { colors } from '../styles/colors';
 
 type SuccessModalProps = {
   visible: boolean;
@@ -29,54 +27,53 @@ const SuccessModal = ({ visible, onClose, data }: SuccessModalProps) => {
       animationType="fade"
       onRequestClose={onClose}
     >
-      <View style={styles.overlay}>
-        <View style={styles.modal}>
-          <View style={styles.header}>
-            <Text style={styles.icon}>✅</Text>
-            <Text style={styles.title}>Contratação Realizada!</Text>
+      <View className="flex-1 bg-black/50 justify-center items-center p-5">
+        <View className="bg-white rounded-2xl p-6 w-full max-w-sm shadow-lg">
+          <View className="items-center mb-5">
+            <Text className="text-xl font-bold text-success text-center">Contratação Realizada</Text>
           </View>
 
-          <View style={styles.content}>
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>Serviço:</Text>
-              <Text style={styles.value}>{data.serviceName}</Text>
+          <View className="mb-5">
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">Serviço:</Text>
+              <Text className="text-sm text-gray-900 flex-2 text-right">{data.serviceName}</Text>
             </View>
 
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>Nome:</Text>
-              <Text style={styles.value}>{data.fullName}</Text>
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">Nome:</Text>
+              <Text className="text-sm text-gray-900 flex-2 text-right">{data.fullName}</Text>
             </View>
 
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>E-mail:</Text>
-              <Text style={styles.value}>{data.email}</Text>
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">E-mail:</Text>
+              <Text className="text-sm text-gray-900 flex-2 text-right">{data.email}</Text>
             </View>
 
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>Telefone:</Text>
-              <Text style={styles.value}>{data.phone}</Text>
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">Telefone:</Text>
+              <Text className="text-sm text-gray-900 flex-2 text-right">{data.phone}</Text>
             </View>
 
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>Preço:</Text>
-              <Text style={[styles.value, styles.price]}>{data.price}</Text>
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">Preço:</Text>
+              <Text className="text-sm text-primary font-bold flex-2 text-right">{data.price}</Text>
             </View>
 
-            <View style={styles.dataRow}>
-              <Text style={styles.label}>Data/Hora:</Text>
-              <Text style={styles.value}>
+            <View className="flex-row justify-between items-start mb-3 pb-2 border-b border-gray-200">
+              <Text className="text-sm font-semibold text-gray-600 flex-1">Data/Hora:</Text>
+              <Text className="text-sm text-gray-900 flex-2 text-right">
                 {new Date().toLocaleString('pt-BR')}
               </Text>
             </View>
           </View>
 
-          <View style={styles.footer}>
-            <Text style={styles.consoleInfo}>
-              💡 Verifique o {Platform.OS === 'web' ? 'console do navegador' : 'terminal do Expo'} para mais detalhes
+          <View className="items-center">
+            <Text className="text-xs text-gray-600 text-center mb-4 italic">
+              Verifique o {Platform.OS === 'web' ? 'console do navegador' : 'terminal do Expo'} para mais detalhes
             </Text>
             
-            <TouchableOpacity style={styles.button} onPress={onClose}>
-              <Text style={styles.buttonText}>Fechar</Text>
+            <TouchableOpacity className="bg-success rounded-lg py-3 px-8 min-w-30 items-center" onPress={onClose}>
+              <Text className="text-white text-base font-semibold">Fechar</Text>
             </TouchableOpacity>
           </View>
         </View>
@@ -84,95 +81,5 @@ const SuccessModal = ({ visible, onClose, data }: SuccessModalProps) => {
     </Modal>
   );
 };
-
-const styles = StyleSheet.create({
-  overlay: {
-    flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
-  modal: {
-    backgroundColor: colors.surface,
-    borderRadius: 16,
-    padding: 24,
-    width: '100%',
-    maxWidth: 400,
-    shadowColor: colors.gray[900],
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 8,
-    elevation: 8,
-  },
-  header: {
-    alignItems: 'center',
-    marginBottom: 20,
-  },
-  icon: {
-    fontSize: 48,
-    marginBottom: 8,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: colors.success,
-    textAlign: 'center',
-  },
-  content: {
-    marginBottom: 20,
-  },
-  dataRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-start',
-    marginBottom: 12,
-    paddingBottom: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: colors.border.light,
-  },
-  label: {
-    fontSize: 14,
-    fontWeight: '600',
-    color: colors.text.secondary,
-    flex: 1,
-  },
-  value: {
-    fontSize: 14,
-    color: colors.text.primary,
-    flex: 2,
-    textAlign: 'right',
-  },
-  price: {
-    color: colors.primary,
-    fontWeight: '700',
-  },
-  footer: {
-    alignItems: 'center',
-  },
-  consoleInfo: {
-    fontSize: 12,
-    color: colors.text.secondary,
-    textAlign: 'center',
-    marginBottom: 16,
-    fontStyle: 'italic',
-  },
-  button: {
-    backgroundColor: colors.success,
-    borderRadius: 8,
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    minWidth: 120,
-    alignItems: 'center',
-  },
-  buttonText: {
-    color: colors.surface,
-    fontSize: 16,
-    fontWeight: '600',
-  },
-});
 
 export default SuccessModal; 
