@@ -12,6 +12,9 @@ export interface Contract {
   servicePrice: number;
   contractDate: string;
   status: 'ativo' | 'cancelado' | 'concluido';
+  customerName: string;
+  customerEmail: string;
+  customerPhone: string;
 }
 
 export interface CreateServiceData {

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import { Service } from '../types';
+import Badge from './Badge';
 
 type ServiceCardProps = {
   service: Service;
@@ -16,16 +17,24 @@ const ServiceCard = ({ service, onContract }: ServiceCardProps) => {
   };
 
   return (
-    <View className="bg-white rounded-xl p-4 mb-3 shadow-sm">
-      <View className="mb-4">
-        <Text className="text-lg font-semibold text-gray-900 mb-2">{service.name}</Text>
-        <Text className="text-xl font-bold text-primary mb-2">{formatPrice(service.price)}</Text>
-        {service.description && (
-          <Text className="text-sm text-gray-600 leading-5">{service.description}</Text>
-        )}
+    <View className="bg-white rounded-lg p-4 border border-gray-200 shadow-sm">
+      <View className="flex-row justify-between items-start mb-3">
+        <Text className="text-lg font-semibold text-gray-900 flex-1 mr-3" numberOfLines={2}>
+          {service.name}
+        </Text>
+        <Badge variant="primary" size="md">
+          {formatPrice(service.price)}
+        </Badge>
       </View>
+      
+      {service.description && (
+        <Text className="text-sm text-gray-600 mb-4 leading-5" numberOfLines={3}>
+          {service.description}
+        </Text>
+      )}
+      
       <TouchableOpacity
-        className="bg-primary rounded-lg py-3 px-6 items-center"
+        className="bg-blue-600 rounded-md py-3 px-4 items-center"
         onPress={() => onContract(service)}
         activeOpacity={0.8}
       >

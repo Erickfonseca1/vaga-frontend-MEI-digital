@@ -17,6 +17,12 @@
       "name": "Aulas de Inglês",
       "price": 60,
       "description": "Aulas particulares de inglês para todos os níveis"
+    },
+    {
+      "id": "58ab",
+      "name": "Limpeza de jardim",
+      "price": 100,
+      "description": "Serviço de jardinagem"
     }
   ],
   "contracts": [
@@ -26,7 +32,10 @@
       "serviceName": "Limpeza Residencial",
       "servicePrice": 150,
       "contractDate": "2024-01-15",
-      "status": "ativo"
+      "status": "ativo",
+      "customerName": "Erick Fonseca Martins Peixoto",
+      "customerEmail": "erick@teste.com",
+      "customerPhone": "(83) 98770-4234"
     },
     {
       "id": "2",
@@ -34,7 +43,10 @@
       "serviceName": "Manutenção de Computadores",
       "servicePrice": 80,
       "contractDate": "2024-01-20",
-      "status": "ativo"
+      "status": "ativo",
+      "customerName": "Erick Fonseca Martins Peixoto",
+      "customerEmail": "erick@teste.com",
+      "customerPhone": "(83) 98770-4234"
     },
     {
       "id": "a134",
@@ -42,7 +54,10 @@
       "serviceName": "Limpeza Residencial",
       "servicePrice": 150,
       "contractDate": "2025-07-28",
-      "status": "ativo"
+      "status": "ativo",
+      "customerName": "Erick Fonseca Martins Peixoto",
+      "customerEmail": "erick@teste.com",
+      "customerPhone": "(83) 98770-4234"
     },
     {
       "id": "f32d",
@@ -54,6 +69,39 @@
       "customerName": "Erick Fonseca Martins Peixoto",
       "customerEmail": "erick@teste.com",
       "customerPhone": "(83) 98770-4234"
+    },
+    {
+      "id": "0838",
+      "serviceId": "1",
+      "serviceName": "Limpeza Residencial",
+      "servicePrice": 150,
+      "contractDate": "2025-07-29",
+      "status": "ativo",
+      "customerName": "Erick",
+      "customerEmail": "teste@teste.com",
+      "customerPhone": "(83) 98988-0000"
+    },
+    {
+      "id": "5fa4",
+      "serviceId": "1",
+      "serviceName": "Limpeza Residencial",
+      "servicePrice": 150,
+      "contractDate": "2025-07-29",
+      "status": "ativo",
+      "customerName": "Rafael Marques",
+      "customerEmail": "r.f@gmail.com",
+      "customerPhone": "(83) 98888-5555"
+    },
+    {
+      "id": "a1a2",
+      "serviceId": "1",
+      "serviceName": "Limpeza Residencial",
+      "servicePrice": 150,
+      "contractDate": "2025-07-29",
+      "status": "ativo",
+      "customerName": "Bárbara Alves",
+      "customerEmail": "b.a@teste.com",
+      "customerPhone": "(83) 99999-9999"
     }
   ]
 }

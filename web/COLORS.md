@@ -4,7 +4,7 @@ Este documento descreve como usar as cores da identidade visual no projeto.
 
 ## Cores Principais
 
-### 🎨 Paleta de Cores
+### Paleta de Cores
 
 | Cor | Nome | Hex | Uso |
 |-----|------|-----|-----|
@@ -79,31 +79,31 @@ Este documento descreve como usar as cores da identidade visual no projeto.
 
 ## Casos de Uso Recomendados
 
-### 🎯 **Primary (Azure)**
+### **Primary (Azure)**
 - Botões de ação principal
 - Links de navegação
 - Elementos de destaque
 - Headers e títulos importantes
 
-### ✅ **Success (Pigment Green)**
+### **Success (Pigment Green)**
 - Mensagens de sucesso
 - Botões de confirmação
 - Status de "concluído"
 - Indicadores positivos
 
-### ⚪ **Neutral (Seasalt)**
+### **Neutral (Seasalt)**
 - Fundos de seções
 - Textos secundários
 - Bordas sutis
 - Estados inativos
 
-### ⚠️ **Warning (Amber)**
+### **Warning (Amber)**
 - Alertas e avisos
 - Estados de atenção
 - Validações pendentes
 - Notificações importantes
 
-### ❌ **Danger (Poppy)**
+### **Danger (Poppy)**
 - Mensagens de erro
 - Botões de deletar
 - Estados críticos
@@ -150,10 +150,3 @@ Este documento descreve como usar as cores da identidade visual no projeto.
   Erro ao processar a solicitação.
 </div>
 ```
-
-## Acessibilidade
-
-- Sempre use contraste adequado entre texto e fundo
-- Para textos em fundos coloridos, use `text-white` ou `text-black` conforme necessário
-- Considere usar as variantes mais escuras (600-900) para textos em fundos claros
-- Use as variantes mais claras (50-400) para fundos com textos escuros 

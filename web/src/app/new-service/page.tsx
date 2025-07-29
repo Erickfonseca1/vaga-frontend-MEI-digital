@@ -4,8 +4,11 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { CreateServiceData, FormErrors } from '@/types';
 import { api } from '@/services/api';
+import ClientOnly from '@/components/ClientOnly';
+import LoadingSpinner from '@/components/LoadingSpinner';
+import Header from '@/components/Header';
 
-export default function NewServicePage() {
+const NewServicePage = () => {
   const router = useRouter();
   const [formData, setFormData] = useState<CreateServiceData>({
     name: '',
@@ -69,101 +72,94 @@ export default function NewServicePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <h1 className="text-3xl font-bold text-gray-900">Cadastrar Novo Serviço</h1>
-            <button
-              onClick={() => router.push('/')}
-              className="bg-neutral-600 text-white px-4 py-2 rounded-md hover:bg-neutral-700 transition-colors"
-            >
-              Voltar
-            </button>
+    <ClientOnly fallback={<LoadingSpinner message="Carregando formulário..." />}>
+      <div className="min-h-screen bg-gray-50">
+        <Header />
+
+        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-8">
+          <h1 className="text-sm sm:text-xl font-bold text-gray-900 mb-4">Cadastrar Novo Serviço</h1>
+
+          <div className="bg-white rounded-lg shadow-md p-4 sm:p-6">
+            <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-1">
+                  Nome do Serviço *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    errors.name ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="Digite o nome do serviço"
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="price" className="block text-sm font-medium text-gray-800 mb-1">
+                  Preço *
+                </label>
+                <input
+                  type="number"
+                  id="price"
+                  name="price"
+                  value={priceInput}
+                  onChange={handleInputChange}
+                  step="0.01"
+                  min="0"
+                  className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                    errors.price ? 'border-red-500' : 'border-gray-300'
+                  }`}
+                  placeholder="0.00"
+                />
+                {errors.price && (
+                  <p className="mt-1 text-sm text-red-600">{errors.price}</p>
+                )}
+              </div>
+
+              <div>
+                <label htmlFor="description" className="block text-sm font-medium text-gray-800 mb-1">
+                  Descrição (opcional)
+                </label>
+                <textarea
+                  id="description"
+                  name="description"
+                  value={formData.description || ''}
+                  onChange={handleInputChange}
+                  rows={4}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  placeholder="Descreva o serviço..."
+                />
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
+                <button
+                  type="button"
+                  onClick={() => router.push('/')}
+                  className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition-colors order-2 sm:order-1"
+                >
+                  Cancelar
+                </button>
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="flex-1 bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors order-1 sm:order-2"
+                >
+                  {isLoading ? 'Salvando...' : 'Salvar Serviço'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
-      </header>
-
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="bg-white rounded-lg shadow-md p-6">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-800 mb-1">
-                Nome do Serviço *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className={`w-full px-3 py-2 text-gray-800 rounded-md focus:ring-1 ${
-                  errors.name ? 'border-danger' : 'border-neutral-400'
-                }`}
-                placeholder="Digite o nome do serviço"
-              />
-              {errors.name && (
-                <p className="text-danger text-sm mt-1">{errors.name}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="price" className="block text-sm font-medium text-gray-800 mb-1">
-                Preço (R$) *
-              </label>
-              <input
-                type="number"
-                id="price"
-                name="price"
-                value={priceInput}
-                onChange={handleInputChange}
-                step="0.01"
-                min="0"
-                className={`w-full px-3 py-2 rounded-md text-gray-800 focus:ring-1 focus:ring-primary ${
-                  errors.price ? 'border-danger' : 'border-neutral-400'
-                }`}
-                placeholder="0.00"
-              />
-              {errors.price && (
-                <p className="text-danger text-sm mt-1">{errors.price}</p>
-              )}
-            </div>
-
-            <div>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-800 mb-1">
-                Descrição (opcional)
-              </label>
-              <textarea
-                id="description"
-                name="description"
-                value={formData.description}
-                onChange={handleInputChange}
-                rows={4}
-                className="w-full px-3 py-2 text-gray-800 rounded-md focus:ring-1 focus:ring-primary"
-                placeholder="Digite uma descrição do serviço"
-              />
-            </div>
-
-            <div className="flex gap-4">
-              <button
-                type="button"
-                onClick={() => router.push('/')}
-                className="flex-1 bg-neutral-600 text-white py-2 px-4 rounded-md hover:bg-neutral-700 transition-colors"
-              >
-                Cancelar
-              </button>
-              <button
-                type="submit"
-                disabled={isLoading}
-                className="flex-1 bg-success text-white py-2 px-4 rounded-md hover:bg-success-600 disabled:bg-neutral-400 disabled:cursor-not-allowed transition-colors"
-              >
-                {isLoading ? 'Cadastrando...' : 'Cadastrar Serviço'}
-              </button>
-            </div>
-          </form>
-        </div>
       </div>
-    </div>
+    </ClientOnly>
   );
-} 
+};
+
+export default NewServicePage;
